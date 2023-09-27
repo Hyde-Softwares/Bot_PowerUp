@@ -12,7 +12,8 @@
 # Passo 5: Repetir o cadastro para todos os produtos;
 
 
-# Instalar pyautogui
+# Instalar pyautogui 
+
 # Permite controlar a tela, mouse e teclado por codigo
 
 import time
@@ -21,6 +22,7 @@ import pyautogui
 # pyautogui.click -> clicar com o mouse
 # pyautogui.write -> escrever um texto
 # pyautogui.press -> apertar 1 tecla
+
 # pyautogui.hotkey -> atalh(combinação de teclas)
 
 pyautogui.PAUSE = 0.2
@@ -32,6 +34,8 @@ pyautogui.press("enter")
 
 # entrar no link
 link_site = "https://dlp.hashtagtreinamentos.com/python/intensivao/login"
+
+time.sleep(2)
 
 pyautogui.click(x=684, y=69)
 
@@ -107,8 +111,6 @@ pyautogui.write("Custo")
 pyautogui.press("tab")
 
 pyautogui.write("OBS")
-
-pyautogui.click(x=884, y=693)
 
 pyautogui.press("enter")
 # Passo 5: Repetir o cadastro para todos os produtos;
