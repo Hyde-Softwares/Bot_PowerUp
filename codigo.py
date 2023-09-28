@@ -32,12 +32,14 @@ pyautogui.press("win")
 pyautogui.write("Chrome")
 pyautogui.press("enter")
 
+time.sleep(3)
+
 # entrar no link
 link_site = "https://dlp.hashtagtreinamentos.com/python/intensivao/login"
 
 time.sleep(2)
 
-pyautogui.click(x=684, y=69)
+pyautogui.click(x=201, y=53)
 
 pyautogui.write(link_site)
 
@@ -45,14 +47,15 @@ time.sleep(0.2)
 
 pyautogui.press("enter")
 
+
 # espera o site carregar
 
-time.sleep(1)
+time.sleep(2)
 
 
 # Passo 2 : Fazer Login
 
-pyautogui.click(x=640, y=451)
+pyautogui.click(x=406, y=406)
 
 
 pyautogui.write("hydeoshy.kaled65@gmail.com")
@@ -73,44 +76,53 @@ time.sleep(3)
 
 import pandas
 
-
 tabela = pandas.read_csv("produtos.csv")
 
+for linha in tabela.index:
 
 # Passo 4: Cadastrar 1 produto;
 
-pyautogui.click(x=775, y=309)
+    pyautogui.click(x=775, y=309)
 
-# Preencher os campos
-pyautogui.write("Codigo")
+    codigo = tabela.loc[linha,"codigo"]
+   
 
-pyautogui.press("tab")
+    # Preencher os campos
+    pyautogui.write(codigo)
 
-pyautogui.write("Marca")
+    pyautogui.press("tab")
 
-pyautogui.press("tab")
+    pyautogui.write(str(tabela.loc[linha, "marca"]))
 
-pyautogui.write("Tipo")
+    pyautogui.press("tab")
 
-pyautogui.press("tab")
+    pyautogui.write(str(tabela.loc[linha,"tipo"]))
 
-pyautogui.write("Categoria")
+    pyautogui.press("tab")
 
-pyautogui.press("tab")
+    pyautogui.write(str(tabela.loc[linha, "categoria"]))
 
-pyautogui.write("Preco")
+    pyautogui.press("tab")
 
-pyautogui.press("tab")
+    pyautogui.write(str(tabela.loc[linha, "preco_unitario"]))
 
-pyautogui.write("Preco")
+    pyautogui.press("tab")
 
-pyautogui.press("tab")
+    pyautogui.write(str(tabela.loc[linha, "custo"]))
 
-pyautogui.write("Custo")
+    pyautogui.press("tab")
 
-pyautogui.press("tab")
+    obs = tabela.loc[linha, "obs"]
 
-pyautogui.write("OBS")
+    if not pandas.isna(obs):
 
-pyautogui.press("enter")
-# Passo 5: Repetir o cadastro para todos os produtos;
+        pyautogui.write(str(tabela.loc[linha, "obs"]))
+
+    
+
+    pyautogui.press("enter")
+    # Passo 5: Repetir o cadastro para todos os produtos;
+
+    pyautogui.scroll(50000)
+
+
